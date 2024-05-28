@@ -31,7 +31,7 @@ x = layers.Flatten()(x)
 outputs = layers.Dense(10, activation="softmax")(x)
 cnn_cls = keras.Model(inputs=inputs, outputs=outputs)
 
-#cnn_cls.summary()
+cnn_cls.summary()
 
 cnn_cls.compile(optimizer="rmsprop",
     loss="sparse_categorical_crossentropy",
