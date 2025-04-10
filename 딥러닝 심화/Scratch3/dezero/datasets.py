@@ -47,7 +47,7 @@ def get_spiral(train=True):
     num_data, num_class, input_dim = 100, 3, 2
     data_size = num_class * num_data
     x = np.zeros((data_size, input_dim), dtype=np.float32)
-    t = np.zeros(data_size, dtype=np.int)
+    t = np.zeros(data_size, dtype=np.int32)
 
     for j in range(num_class):
         for i in range(num_data):
