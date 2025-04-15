@@ -1,0 +1,170 @@
+{
+	"0": {
+		"class": "background",
+		"color": [
+			0,
+			0,
+			0
+		]
+	},
+	"1": {
+		"class": "aeroplane",
+		"color": [
+			128,
+			0,
+			0
+		]
+	},
+	"2": {
+		"class": "bicycle",
+		"color": [
+			0,
+			128,
+			0
+		]
+	},
+	"3": {
+		"class": "bird",
+		"color": [
+			128,
+			128,
+			0
+		]
+	},
+	"4": {
+		"class": "boat",
+		"color": [
+			0,
+			0,
+			128
+		]
+	},
+	"5": {
+		"class": "bottle",
+		"color": [
+			128,
+			0,
+			128
+		]
+	},
+	"6": {
+		"class": "bus",
+		"color": [
+			0,
+			128,
+			128
+		]
+	},
+	"7": {
+		"class": "car",
+		"color": [
+			128,
+			128,
+			128
+		]
+	},
+	"8": {
+		"class": "cat",
+		"color": [
+			64,
+			0,
+			0
+		]
+	},
+	"9": {
+		"class": "chair",
+		"color": [
+			192,
+			0,
+			0
+		]
+	},
+	"10": {
+		"class": "cow",
+		"color": [
+			64,
+			128,
+			0
+		]
+	},
+	"11": {
+		"class": "diningtable",
+		"color": [
+			192,
+			128,
+			0
+		]
+	},
+	"12": {
+		"class": "dog",
+		"color": [
+			64,
+			0,
+			128
+		]
+	},
+	"13": {
+		"class": "horse",
+		"color": [
+			192,
+			0,
+			128
+		]
+	},
+	"14": {
+		"class": "motorbike",
+		"color": [
+			64,
+			128,
+			128
+		]
+	},
+	"15": {
+		"class": "person",
+		"color": [
+			192,
+			128,
+			128
+		]
+	},
+	"16": {
+		"class": "potted plant",
+		"color": [
+			0,
+			64,
+			0
+		]
+	},
+	"17": {
+		"class": "sheep",
+		"color": [
+			128,
+			64,
+			0
+		]
+	},
+	"18": {
+		"class": "sofa",
+		"color": [
+			0,
+			192,
+			0
+		]
+	},
+	"19": {
+		"class": "train",
+		"color": [
+			128,
+			192,
+			0
+		]
+	},
+	"20": {
+		"class": "tv/monitor",
+		"color": [
+			0,
+			64,
+			128
+		]
+	}
+}
