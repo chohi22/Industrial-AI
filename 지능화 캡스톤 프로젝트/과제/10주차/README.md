@@ -15,7 +15,8 @@
    ![결과](tmpd169k9kz.PNG)
 
 
-## [결과물] (/지능화%20캡스톤%20프로젝트/과제/10주차/결과물%20제출)
+## 결과물
+- [수행결과] (/지능화%20캡스톤%20프로젝트/과제/10주차/결과물%20제출)
  1) Object Detection with Custom Datasets.hwp
  2) Source Code
  3) Github 포트폴리오 링크
