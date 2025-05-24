@@ -10,7 +10,7 @@
   - yolo12n최신 버전으로 학습진행
    ![train](yolomodel.png)
 #### Validation 결과 mAP50, mAP50-95 도출
-  - ![summary](mAP50.png)
+   ![summary](mAP50.png)
 #### Test 이미지에 대한 결과 이미지 도출
    ![결과](tmpd169k9kz.PNG)
 
