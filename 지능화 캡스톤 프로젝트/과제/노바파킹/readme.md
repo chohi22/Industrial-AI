@@ -71,7 +71,7 @@ python parking_bbox_detection.py --video ./input.mp4 --model ./model.pt --output
 ## 실행 중 단축키
 
 - `q`: 프로그램 종료
-- `p`: 일시 정지/재생
+
 
 ## 출력 정보
 
