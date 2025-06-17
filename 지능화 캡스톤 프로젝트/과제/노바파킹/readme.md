@@ -144,12 +144,12 @@
    - 비지도 학습 : 라벨링 된 데이터 없이도 주차 패턴을 학습할 수 있는 비지도 학습 연구
 
 ## 참고문헌
-   - [1] “10 monster traffic jams from around the world,” https://www.bbc.com/news/magazine-19716687, accessed: 2018-05-18.
-   - [2] “Searching for parking costs the UK£23.3 billion a year,” http://inrix.com/press-releases/parking-pain-uk/, accessed: 201805-18.
-   - [3] “SMART PARKING WITH PIXEL-WISE ROI SELECTION FOR  VEHICLE DETECTION USING YOLOV8, YOLOV9, YOLOV10, AND YOLOV11” https://arxiv.org/html/2412.01983v2
-   - [4] “Real-time image-based parking occupancy detection using deep learning” https://ceur-ws.org/Vol-2087/paper5.pdf
-   - [5] “Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks” https://arxiv.org/abs/1506.01497
-   - [6] ”Auxiliary Domain-guided Adaptive Detection in Adverse Weather Conditions” https://openaccess.thecvf.com/content/ACCV2024/html/Fu_Auxiliary_Domain-guided_Adaptive_Detection_in_Adverse_Weather_Conditions_ACCV_2024_paper.html
+   - [1] “SMART PARKING WITH PIXEL-WISE ROI SELECTION FOR  VEHICLE DETECTION USING YOLOV8, YOLOV9, YOLOV10, AND YOLOV11” https://arxiv.org/html/2412.01983v2
+   - [2] “Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks” https://arxiv.org/abs/1506.01497
+   - [3] “Real-time image-based parking occupancy detection using deep learning” https://ceur-ws.org/Vol-2087/paper5.pdf
+   - [4] “Searching for parking costs the UK£23.3 billion a year,” http://inrix.com/press-releases/parking-pain-uk/, accessed: 201805-18.
+   - [5] ”Auxiliary Domain-guided Adaptive Detection in Adverse Weather Conditions” https://openaccess.thecvf.com/content/ACCV2024/html/Fu_Auxiliary_Domain-guided_Adaptive_Detection_in_Adverse_Weather_Conditions_ACCV_2024_paper.html
+
 
 
 
