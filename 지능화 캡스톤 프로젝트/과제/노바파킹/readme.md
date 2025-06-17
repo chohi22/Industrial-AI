@@ -90,6 +90,24 @@
    - 그러나 두 모델 모두 추론 속도 측면에서는 YOLOv12보다 크게 낮아 실시간 응용에는 다소 제한적일 수 있다. 정밀한 인식이 필요한 환경에 더 적합한 것을 시험을 통해 알 수 있었다.
    - 결론적으로, YOLO v12는 정확도와 속도를 모두 갖춘 모델로서, 실시간 주차 공간 모니터링 시스템에 실시간 감시 모델로 적합한 모델로 평가됩니다.
 
+![챠트](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/eval_chart2.png)
+
+## 결과 및 분석 (Results & Analysis)
+### Faster R-CNN
+![Faster R-CNN](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/faster_r-cnn.png)
+
+
+### Mask R-CNN
+![Mask R-CNN](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/mask_r-cnn.png)
+
+
+### YOLO 12
+![yolo12](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/yolo12n.png)
+
+
+### Auto Label 구현 결과 
+![yolo12](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/autolabel.png)
+
 
 
 
