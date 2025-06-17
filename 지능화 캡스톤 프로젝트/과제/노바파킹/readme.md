@@ -28,7 +28,7 @@
    - with : 박스 너비 비율
    - height : 박스 높이 비율
 
-   ![bound box](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/autolabel_ex.png)
+![자동라벨링 예시](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/autolabel_ex.png)
 
 
 ## 실시간 주차 모니터링 프로세스
@@ -42,8 +42,46 @@
    - 주차 빈공간 탐지 : 현재 주차 가능한 공간 수를 표시한다.
    - 알림 서비스: 실시간 주차공간 정보를 사용자에게 알린다.
 
-
 ![실시간 감시](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/realtime_detect.png)
+
+
+### 실험 구성 및 평가 방법 
+#### 하드웨어 및 소프트웨어 환경
+   - OS : Ubuntu 25.04
+   - GPU : NVIDIA RTX 5070ti 16G
+   - 메모리 : 32GB
+   - 소프트웨어 : PyTorch, TensorFlow, Detectron2
+   - 개발환경 : PyCharm
+
+#### 학습 데이터셋
+   - 건수 : 14,908장의 주차장 학습 이미지
+   - 다양성 : 다양한 날씨(sunny, overcast, rainy), 주차장 유형(UFPR04, UFPR05, PUCPR)
+   - 라벨링 : 각 이미지에는 차량의 바운딩 박스와 주차 공간의 상태(Empty, Occupied) 라벨링 데이터 사용
+   - 데이터구성 : 학습세트(11,177건), 검증세트(2,486건), 테스트세트(1,245)
+   - 출처 : https://web.inf.ufpr.br/vri/databases/parking-lot-database/
+
+#### Auto label 데이터
+   - 건수 : 24장의 주차장 학습 이미지
+   - 다양성 : 다양한 카메라 위치(30m, 40m, 50m, 60m, 70m,75m) 
+   - 라벨링 : 각 이미지에는 차량의 바운딩 박스와 주차 공간의 상태(Empty, Occupied) 라벨링
+   - 데이터구성 : 학습(16건), 검증(5건), 테스트(3)
+
+
+#### 모델별 성능 평가 및 비교
+   - 세 가지 객체 인식 모델의 성능을 다음과 같은 지표를 사용하여 평가 진행
+      - 정밀도(Precision) : 모델이 occupied 으로 예측한 주차 공간 중 실제로 사용중인 비율
+      - 재현율(Recall) : 실제 사용 중인 주차 공간 중 모델이 정확히 occupied 으로 예측한 비율
+      - F1-Score : 정밀도와 재현율의 조회 평균
+      - 평균 정밀도(mAP) : 여러 IoU임계값 에서의 평균 정밀도
+      - 처리속도(FPS) : 초당 처리할 수 있는 프레임 수
+   - IoU (Intersection over Union) : 객체 탐지 평가 지표 사용
+   
+![IoU](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/IoU.png)
+   - 출처 : https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/
+
+
+
+  
 
 
 # 주차장 실시간 감시 구현
