@@ -15,9 +15,21 @@
    - 주차 공간 감시 모듈 : 실시간으로 인식한 정보를 바탕으로 주차 공간의 상태(empty, occupied)를 실시간으로 감시한다.
    - 사용자 인터페이스 : 주차 공간 상태 정보를 사용자에게 시각적으로 제공한다.
    - 서버연계 모듈 : 주차 공가정보, 차량데이터, 통계 정보 등을 저장관리하고 알림을 사용자에게 알린다.
-
-## 시스템 개요
 ![시스템 개요](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B0%9C%EB%85%90%EB%8F%84.png)
+
+## 자동 라벨링 방법
+   - 초기 데이터셋 구성 : 소수의 수동 라벨링 된 이미지로 초기 데이터셋을 구성한다.
+   - 사전학습 모델 활용 : 사전 훈련된 Faster R-CNN, Mask R-CNN 사전 학습된 모델을 활용한다.
+   - YOLO 모델  라벨링 : 사전 학습된 모델을 사용하여 새로운 이미지에 대한 자동 라벨링을 수행한다.
+![bound box](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/boundbox.png)
+   - class_id : 0 = Empty, 1 = occupied
+   - x_center : 전체 이미지 너비 기준 비율 x좌표
+   - y_center : 전체 이미지 너비 기준 비율 y좌표
+   - with : 박스 너비 비율
+   - height : 박스 높이 비율
+
+   ![bound box](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/autolabel_ex.png)
+
 
 
 
