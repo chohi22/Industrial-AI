@@ -82,7 +82,7 @@
 
 #### 객체 인식 모델 성능 비교 결과
    - 본 실험에서는 Faster R-CNN, Mask R-CNN, YOLOv12 세 가지 객체 인식 모델을 대상으로 주요 평가 지표에 따라 성능을 비교하였다. 평가 항목은 Precision, Recall, F1-score, mAP@0.5, mAP@0.5:0.95, FPS로 구성하였다.
-![평가표](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/eval_grid.png)
+![평가표](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/evel_grid.png)
   
    - 그 결과, YOLO v12 모델은 정밀도(Precision), 재현율(Recall), F1-Score 등 전체 평가 지표에서 우수한 성능을 보였다.
 ![챠트](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/eval_chart1.png)
