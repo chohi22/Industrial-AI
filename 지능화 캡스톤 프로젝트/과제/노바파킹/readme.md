@@ -31,6 +31,19 @@
    ![bound box](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/autolabel_ex.png)
 
 
+## 실시간 주차 모니터링 프로세스
+   - 웹캠 비디오 입력 : 주차장에 설치한 고해상도 CCTV 카메라에서 실시간으로 입력되는 비디오 스트림(RTSP: Real-Time Streaming Protocla)을 입력받는다. 
+    . 카메라에서 실시간으로 입력되는 비디오 스트림을 처리하기 위한 객체를 생성한다.
+    . 주차 공간 탐지를 위해 YOLO12n 모델을 초기화한다.
+   - 주차공간 탐지 : 비디오 스트림을 프레임 단위로 처리하여 객체를 탐지한다.
+    . 주차 공간 탐지 및 차량 탐지하고 주차 상태를 분석한다.
+    . 객체 추적 결과 바운딩 박스 좌표와 클래스 라벨을 추출한다.
+    . 주차 공간의 상태를 시각적으로 표시하고 처리된 비디오를 출력한다.
+   - 주차 빈공간 탐지 : 현재 주차 가능한 공간 수를 표시한다.
+   - 알림 서비스: 실시간 주차공간 정보를 사용자에게 알린다.
+
+
+![실시간 감시](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/realtime_detect.png)
 
 
 # 주차장 실시간 감시 구현
