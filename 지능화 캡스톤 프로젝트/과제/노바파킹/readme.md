@@ -17,7 +17,7 @@
    - 서버연계 모듈 : 주차 공가정보, 차량데이터, 통계 정보 등을 저장관리하고 알림을 사용자에게 알린다.
 
 ## 시스템 개요
-![시스템 개요](지능화 캡스톤 프로젝트/과제/노바파킹/보고서/시스템개념도.png)
+![시스템 개요](https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/%EB%B3%B4%EA%B3%A0%EC%84%9C/%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B0%9C%EB%85%90%EB%8F%84.png)
 
 
 
