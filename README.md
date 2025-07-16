@@ -1,7 +1,5 @@
 # 충북대학교 산업인공지능학과 24학번 정현일
 
-![커버이미지](cover.jpg)
-
 이메일 : chohi@chungbuk.ac.kr
 
 
