@@ -7,11 +7,11 @@
 본 연구에서는 국토교통부 보도자료 5년치와 장관 말과글 데이터를 활용하여 국토교통 도메인에 특화된 온프레미스(On-Premises) 생성형 AI 구축하고, 이를 기반으로 한 지능형 질의응답 챗봇을 구현하여 24시간 접근 가능한 맞춤형 정보 서비스를 제공하고자 한다.
 
 ## 문제정의
-   - 복잡한 정책 용어와 절차로 인한 정보 접근 장벽으로, 일반 국민이 필요한 정보를 쉽게 찾고 이해하기 어려운 상황이다.
-   - 정책 변경 사항이나 새로운 제도에 대한 정보 전달이 지연되어, 국민이 최신 정보를 적시에 획득하지 못하는 문제가 발생한다.
-   - 담당자별로 상이한 답변이 제공되어 정보의 일관성과 신뢰성이 저하되는 경우가 빈번하다.
-   - 제한된 상담 시간과 인력으로 인해 민원인이 원하는 시점에 즉시 정보를 얻기 어려운 상황이다.
-   - chatGPT 등 외부 생성형 AI 서비스를 사용할 경우, 모든 데이터가 해외 서버로 전송되어 개인정보, 민감정보, 업무 관련 기밀정보가 노출될 위험이 존재한다.
+- 복잡한 정책 용어와 절차로 인한 정보 접근 장벽으로, 일반 국민이 필요한 정보를 쉽게 찾고 이해하기 어려운 상황이다.
+- 정책 변경 사항이나 새로운 제도에 대한 정보 전달이 지연되어, 국민이 최신 정보를 적시에 획득하지 못하는 문제가 발생한다.
+- 담당자별로 상이한 답변이 제공되어 정보의 일관성과 신뢰성이 저하되는 경우가 빈번하다.
+- 제한된 상담 시간과 인력으로 인해 민원인이 원하는 시점에 즉시 정보를 얻기 어려운 상황이다.
+- chatGPT 등 외부 생성형 AI 서비스를 사용할 경우, 모든 데이터가 해외 서버로 전송되어 개인정보, 민감정보, 업무 관련 기밀정보가 노출될 위험이 존재한다.
 
 ## 기존 연구(기술)의 현황 및 비교 분석
 국내 공공기관들은 민원 서비스 개선을 위해 다양한 챗봇 서비스를 도입하고 있고, 대부분 규칙 기반(Rule-based) 시스템으로 구축되어 제한적인 질의에만 응답할 수 있으며, 복잡하거나 맥락적인 질문을 처리하는 데에는 한계가 있다.
@@ -34,7 +34,7 @@
 
 # 방법 (Methodology)
 ## 전체 구조도
-<1.구조도>
+![1.구조도](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B1%B0%EB%8C%80%EC%96%B8%EC%96%B4%EB%AA%A8%EB%8D%B8%20%EA%B8%B0%EB%B0%98%20%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%84%EC%95%BC%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A7%88%EC%9D%98%EC%9D%91%EB%8B%B5%20%EC%B1%97%EB%B4%87%20%EA%B5%AC%ED%98%84%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%97%B0%EA%B5%AC/images/1.%EA%B5%AC%EC%A1%B0%EB%8F%84.png)
 
 ## 연구 환경
 ### 하드웨어 사양
@@ -60,31 +60,31 @@
 
 ## 모듈별 설명
 ### 학습데이터 생성
- - 전처리 MarkDown파일 생성 모듈 : 한글(.hwpx), pdf파일을 전처리 하여 .md 파일 생성
- - 프롬프트 생성 모듈: 질문자료 100개와  전처리 MarkDown 파일을 조합해서  Ollama,  Qwen3 LLM 모델 RAG구성하고,  API 사용하여 보도자료별 100개의 질문지의 답변을 요청
+- 전처리 MarkDown파일 생성 모듈 : 한글(.hwpx), pdf파일을 전처리 하여 .md 파일 생성
+- 프롬프트 생성 모듈: 질문자료 100개와  전처리 MarkDown 파일을 조합해서  Ollama,  Qwen3 LLM 모델 RAG구성하고,  API 사용하여 보도자료별 100개의 질문지의 답변을 요청
    - 수신된 데이터를 가공하여 Gemma 3 파인튜닝 데이터셋을 생성
 
 ### LLM Finetuning
- - 한국어 특화된 LLM 모델: 한국어 처리가 원활한 google의 gemma-3 모델 활용
+- 한국어 특화된 LLM 모델: 한국어 처리가 원활한 google의 gemma-3 모델 활용
    - QA 파인튜닝 데이터 : 국토교통부 보도자료 5년치 (2019-2024)
 
 ### 국토교통 분야 RAG 구성
- - 질의 전처리 및 의도 분석 모듈 : 테스트 정제 및 정규화, 질의 유형 분류, 핵심 키워드  추출
- - 지식 검색 보강 모듈 : 벡터기반 의미 검색, 최신 정책 문서 검색, 관련 보도자료
- - 답변 생성 및 검증 모듈 : 컨텍스트 기반 답변 생성, 정책 일관성 검증, 답변 품질 및 필터링
- - 후처리 및 사용자 인터페이스 : 답변 포멧팅 및 가독성 개선, 관련 링크 및 첨부 자료 첨부, 추가 질의 유도
+- 질의 전처리 및 의도 분석 모듈 : 테스트 정제 및 정규화, 질의 유형 분류, 핵심 키워드  추출
+- 지식 검색 보강 모듈 : 벡터기반 의미 검색, 최신 정책 문서 검색, 관련 보도자료
+- 답변 생성 및 검증 모듈 : 컨텍스트 기반 답변 생성, 정책 일관성 검증, 답변 품질 및 필터링
+- 후처리 및 사용자 인터페이스 : 답변 포멧팅 및 가독성 개선, 관련 링크 및 첨부 자료 첨부, 추가 질의 유도
 
 
 # 실험 구성 및 평가 방법 (Experiment Settings) 
 ## 데이터 셋 구성
 데이터 셋 구성 최근 5년간 국토교통부 보도자료, 장관의 말과 글, 정책연구용역보고서 데이터를 수집하고, gemma-3 LLM 모델의 파인튜닝 데이터셋 으로 활용.
- - 국토교통부 보도자료 데이터:
+- 국토교통부 보도자료 데이터:
    - 수집 기간: 2020년 1월 ~ 2024년 12월 (5년간)
    - 데이터량: 약 5,200건의 보도자료
    - 데이터 사이즈 : 약 15Gbytes
    - 평균 파일 사이즈: 2.8Mbytes
    - 카테고리: 국토도시, 주택토지, 건설, 교통물류, 항공, 도로철도, 일반, 융합(기타)
- - 장관님 말과글 데이터 :
+- 장관님 말과글 데이터 :
    - 수집 기간: 2020년 1월 ~ 2024년 12월 (5년간)
    -  데이터량: 625건
    -  데이터 사이즈 : 약 3Mbytes
@@ -92,16 +92,16 @@
  
 
 ## 하이퍼 파라미터 설정
- - temperature: float = 0.3            # 정확성 우선 (기존 1.0 → 0.3)
- - top_k: int = 50                           # 품질 향상 (기존 64 → 50)
- - top_p: float = 0.9                       # 엄격한 필터링 (기존 0.95 → 0.9)
- - min_p: float = 0.02                    # 최소 확률 임계값 추가
- - repetition_penalty: float = 1.1    # 반복 방지 추가
+- temperature: float = 0.3            # 정확성 우선 (기존 1.0 → 0.3)
+- top_k: int = 50                           # 품질 향상 (기존 64 → 50)
+- top_p: float = 0.9                       # 엄격한 필터링 (기존 0.95 → 0.9)
+- min_p: float = 0.02                    # 최소 확률 임계값 추가
+- repetition_penalty: float = 1.1    # 반복 방지 추가
 
 
 ## 평가 방법
- 자동 평가는 일반적으로 표준화된 지표와 도구를 사용하여 모델 성능을 평가하는 대중적인 방법 활용한다[8].
- | 주요측면         | 지표 (Metrics)      | 설명                                                                 |
+자동 평가는 일반적으로 표준화된 지표와 도구를 사용하여 모델 성능을 평가하는 대중적인 방법 활용한다[8].
+| 주요측면         | 지표 (Metrics)      | 설명                                                                 |
 |------------------|--------------------|----------------------------------------------------------------------|
 | 정확도 (Accuracy) | Exact Match (EM)   | - 텍스트 생성 작업에서 모델의 출력이 참조 답변과 정확히 일치하는지 평가<br>- 질의응답(QA)에서 수동으로 제공된 답변과 정확히 일치하면 1, 아니면 0으로 측정 |
 | F1 점수 (F1 score) |                    | - 이진 분류 모델의 성능을 평가하며, 정밀도(Precision)와 재현율(Recall)을 결합하여 계산 |
@@ -109,13 +109,13 @@
 | Perplexity (PPL) |                    | - 언어모델 자체 품질 평가 |
 
 ### 평가 도구
- lm_eval: LLM을 사용한 개방형 대화에 대한 통일된 다차원 자동 평가를 지원하는 평가 도구 활용한다.
+ - lm_eval: LLM을 사용한 개방형 대화에 대한 통일된 다차원 자동 평가를 지원하는 평가 도구 활용한다.
 
 
 # 결과 및 분석 (Results & Analysis)
 ## 데이터 전처리
 한글(hwpx)과 PDF 형식의 파일을 LLM이 이해하기 쉽게 .md파일 형태로 가공해서 학습기초 데이터로 활용한다.
-<2.전처리>
+![2.전처리](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B1%B0%EB%8C%80%EC%96%B8%EC%96%B4%EB%AA%A8%EB%8D%B8%20%EA%B8%B0%EB%B0%98%20%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%84%EC%95%BC%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A7%88%EC%9D%98%EC%9D%91%EB%8B%B5%20%EC%B1%97%EB%B4%87%20%EA%B5%AC%ED%98%84%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%97%B0%EA%B5%AC/images/2.%EC%A0%84%EC%B2%98%EB%A6%AC.png)
 
 
 ## 학습데이터셋 생성
@@ -134,25 +134,25 @@
 | 기타·리스크 (10)   | • 예상되는 가장 큰 어려움은 무엇입니까?            |
 
 ### Qwen 3를 사용해 생성한 QA데이터 일부 샘플
-<3.QnA샘플>
+![3.QnA샘플](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B1%B0%EB%8C%80%EC%96%B8%EC%96%B4%EB%AA%A8%EB%8D%B8%20%EA%B8%B0%EB%B0%98%20%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%84%EC%95%BC%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A7%88%EC%9D%98%EC%9D%91%EB%8B%B5%20%EC%B1%97%EB%B4%87%20%EA%B5%AC%ED%98%84%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%97%B0%EA%B5%AC/images/3.QnA%EC%83%98%ED%94%8C.png)
 
 ## 국토교통 분야 RAG 구성 테스트
 PDF 문서들을 임베딩하여 검색할 수 있도록 인덱싱하고, 사용자의 질의(Query)에 대해 관련된 문서 내용을 검색한 후, LLM(Gemma)을 이용해 응답을 생성하는 구조로 프로세스 구현하고 테스트 진행했다.
- - 정상 조회  예시 : 질문 “너가 가지고 있는 정보중에 인허가, 착공, 준공 통계는 몇건 인가?”
- <4.RAG>
- - 알 수 없는 질문  예시 : 질문 “국토부에서 제공하는 통계중에 2024년 신혼부부 수는 몇으로 공표를 했나요?
- <5.RAG>
+- 정상 조회  예시 : 질문 “너가 가지고 있는 정보중에 인허가, 착공, 준공 통계는 몇건 인가?”
+![4.RAG](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B1%B0%EB%8C%80%EC%96%B8%EC%96%B4%EB%AA%A8%EB%8D%B8%20%EA%B8%B0%EB%B0%98%20%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%84%EC%95%BC%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A7%88%EC%9D%98%EC%9D%91%EB%8B%B5%20%EC%B1%97%EB%B4%87%20%EA%B5%AC%ED%98%84%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%97%B0%EA%B5%AC/images/4.RAG.png)
+- 알 수 없는 질문  예시 : 질문 “국토부에서 제공하는 통계중에 2024년 신혼부부 수는 몇으로 공표를 했나요?
+![5.RAG](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B1%B0%EB%8C%80%EC%96%B8%EC%96%B4%EB%AA%A8%EB%8D%B8%20%EA%B8%B0%EB%B0%98%20%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%84%EC%95%BC%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A7%88%EC%9D%98%EC%9D%91%EB%8B%B5%20%EC%B1%97%EB%B4%87%20%EA%B5%AC%ED%98%84%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%97%B0%EA%B5%AC/images/5.RAG.png)
 
 
 # 참고문헌
- - [1] AI 챗봇 시스템 주요 기술 동향 분석을 통한 민원 처리시스템 개선, https://www.riss.kr/link?id=A109241326
- - [2] Large Language Models: A Survey, https://arxiv.org/abs/2402.06196
- - [3] 쉽고 빠르게 익히는 실전 LLM, 한빛미디어
- - [4] 랭체인으로 LLM 기반의 AI 서비스 개발하기, 길벗
- - [5] “SELF-INSTRUCT: Aligning Language Models with Self-Generated Instructions” https://arxiv.org/abs/2212.10560
- - [6] LLM 엔지니어링, 한빛미디어, (2025.05.02)
- - [7] A Survey on Evaluation of Large Language Models, https://arxiv.org/abs/2307.03109
- - [8] Gemma 3 Technical Report, https://arxiv.org/abs/2503.19786
- - [9] RAG Optimization for Automotive PDF Chatbots with Ollama, https://arxiv.org/abs/2408.05933
- - [10] Gemma model fine-tuning, https://ai.google.dev/gemma/docs/tune?hl=ko
- - [11] Collection of guides and examples for Google Gemma,  https://github.com/google-gemini/gemma-cookbook/tree/main/Gemma
+- [1] AI 챗봇 시스템 주요 기술 동향 분석을 통한 민원 처리시스템 개선, https://www.riss.kr/link?id=A109241326
+- [2] Large Language Models: A Survey, https://arxiv.org/abs/2402.06196
+- [3] 쉽고 빠르게 익히는 실전 LLM, 한빛미디어
+- [4] 랭체인으로 LLM 기반의 AI 서비스 개발하기, 길벗
+- [5] “SELF-INSTRUCT: Aligning Language Models with Self-Generated Instructions” https://arxiv.org/abs/2212.10560
+- [6] LLM 엔지니어링, 한빛미디어, (2025.05.02)
+- [7] A Survey on Evaluation of Large Language Models, https://arxiv.org/abs/2307.03109
+- [8] Gemma 3 Technical Report, https://arxiv.org/abs/2503.19786
+- [9] RAG Optimization for Automotive PDF Chatbots with Ollama, https://arxiv.org/abs/2408.05933
+- [10] Gemma model fine-tuning, https://ai.google.dev/gemma/docs/tune?hl=ko
+- [11] Collection of guides and examples for Google Gemma,  https://github.com/google-gemini/gemma-cookbook/tree/main/Gemma
