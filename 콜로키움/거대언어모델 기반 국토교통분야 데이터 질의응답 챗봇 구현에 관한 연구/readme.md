@@ -34,6 +34,7 @@
 
 # 방법 (Methodology)
 ## 전체 구조도
+본 연구에서는 국토교통 분야에 특화된 챗봇 시스템을 LLM 기반으로 제안한다. 그림 1과 같이 시스템 구성도는 총 3단계 파이프라인으로 이루어진다: (1) Qwen3 기반 RAG 모듈을 활용한 QA 데이터셋 생성, (2) Gemma-3 모델 파인튜닝, (3) 파인튜닝된 모델을 적용한 최종 RAG 챗봇 모듈이다.
 ![1.구조도](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B1%B0%EB%8C%80%EC%96%B8%EC%96%B4%EB%AA%A8%EB%8D%B8%20%EA%B8%B0%EB%B0%98%20%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%84%EC%95%BC%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A7%88%EC%9D%98%EC%9D%91%EB%8B%B5%20%EC%B1%97%EB%B4%87%20%EA%B5%AC%ED%98%84%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%97%B0%EA%B5%AC/images/1.%EA%B5%AC%EC%A1%B0%EB%8F%84.png)
 
 ## 연구 환경
@@ -143,6 +144,8 @@ PDF 문서들을 임베딩하여 검색할 수 있도록 인덱싱하고, 사용
 - 알 수 없는 질문  예시 : 질문 “국토부에서 제공하는 통계중에 2024년 신혼부부 수는 몇으로 공표를 했나요?
 ![5.RAG](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B1%B0%EB%8C%80%EC%96%B8%EC%96%B4%EB%AA%A8%EB%8D%B8%20%EA%B8%B0%EB%B0%98%20%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%84%EC%95%BC%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A7%88%EC%9D%98%EC%9D%91%EB%8B%B5%20%EC%B1%97%EB%B4%87%20%EA%B5%AC%ED%98%84%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%97%B0%EA%B5%AC/images/5.RAG.png)
 
+# 결론
+본 연구에서는 국토교통 도메인에 특화된 온프레미스(On-Premises) LLM-RAG 챗봇의 설계, 구현 및 평가 방법을 제시하였다. 이를 통해 향후 국토교통 분야에서 거대언어모델(LLM)을 기반으로 한 인공지능 서비스의 발전에 있어 중요한 이정표가 될 것으로 기대된다.
 
 # 참고문헌
 - [1] AI 챗봇 시스템 주요 기술 동향 분석을 통한 민원 처리시스템 개선, https://www.riss.kr/link?id=A109241326
