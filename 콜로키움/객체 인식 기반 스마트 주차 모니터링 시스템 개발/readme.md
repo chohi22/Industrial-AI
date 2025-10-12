@@ -28,6 +28,8 @@
 | Mask R-CNN    | 0.9442            | 0.9754          | 0.9595   | 84.76   | 42.99         | 23.70  |
 | YOLO v12      | 0.9989            | 0.9986          | 0.9987   | 99.46   | 98.74         | 118.23 |
 
+- 이전 시험 보고서 : https://github.com/chohi22/Industrial-AI/blob/main/%EC%A7%80%EB%8A%A5%ED%99%94%20%EC%BA%A1%EC%8A%A4%ED%86%A4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B3%BC%EC%A0%9C/%EB%85%B8%EB%B0%94%ED%8C%8C%ED%82%B9/readme.md
+
 - CNN 기반 모델은 새로운 주차장 환경에서 객체 탐지 모델의 적응성이 부족하게 나타난다.
 ![1.오탐사례](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B0%9D%EC%B2%B4%20%EC%9D%B8%EC%8B%9D%20%EA%B8%B0%EB%B0%98%20%EC%8A%A4%EB%A7%88%ED%8A%B8%20%EC%A3%BC%EC%B0%A8%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B0%9C%EB%B0%9C/images/1.%EC%98%A4%ED%83%90%EC%82%AC%EB%A1%80.png)
 
