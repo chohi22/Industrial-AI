@@ -42,6 +42,7 @@
 
 
 # 방법 및 구현 (Methodology & Implementation)
+본 논문에서는 Transformer 기반 Grounding DINO를 활용한 주차 모니터링 시스템을 설계하고, 자동 라벨링 기반의 효율적인 데이터셋 구축 방법을 제시하였으며, 실시간 주차 상태 모니터링이 가능한 웹·앱 기반 통합 서비스 플랫폼을 구현하여 그 성능을 시험한 내용을 다룬다. 
 ## 스마트 주차 모니터링 시스템 구성도
 ![2.구성도](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B0%9D%EC%B2%B4%20%EC%9D%B8%EC%8B%9D%20%EA%B8%B0%EB%B0%98%20%EC%8A%A4%EB%A7%88%ED%8A%B8%20%EC%A3%BC%EC%B0%A8%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B0%9C%EB%B0%9C/images/2.%EA%B5%AC%EC%84%B1%EB%8F%84.png)   
 
@@ -128,6 +129,8 @@ Grounding DINO 모델은 텍스트와 이미지 특징을 트랜스포머로 결
 
 ## 노바파킹 세부 기능
 ### 객체인식 트래킹 알고리즘
+RTSP 프로토콜로 수신한 CCTV 영상의 각 프레임에서 객체를 탐지하고, 이전 프레임의 트랙과 IoU 기준으로 매칭하여 동일 객체의 ID를 부여하고 유지한다.
+
 - 알고리즘 1. IoU 기반 Tracking-by-Detection
 ```python
 1: Input Tracking-by-Detection(dets_xyxy, dets_score, dets_cls)
@@ -144,6 +147,7 @@ Grounding DINO 모델은 텍스트와 이미지 특징을 트랜스포머로 결
 ![10.트래킹출력](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B0%9D%EC%B2%B4%20%EC%9D%B8%EC%8B%9D%20%EA%B8%B0%EB%B0%98%20%EC%8A%A4%EB%A7%88%ED%8A%B8%20%EC%A3%BC%EC%B0%A8%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B0%9C%EB%B0%9C/images/10.%ED%8A%B8%EB%9E%98%ED%82%B9%EC%B6%9C%EB%A0%A5.png)
 
 ### 불법주차 챠랑 검출
+주차면 ROI를 활용해 불법주차 차량을 검출 하고 체류 시간을 기준으로 불법 주차 차량을 구별한다.
 - 알고리즘 2. ROI 기반 Parking-violation-Detection
 ```python
    1: Input Tracking-by-Detection(dets_xyxy, dets_score, dets_cls)
@@ -155,6 +159,15 @@ Grounding DINO 모델은 텍스트와 이미지 특징을 트랜스포머로 결
    7:           emit_event(t, match)
    8: Return illegal_parking_events.   
 ```
+![11.불법주차a](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B0%9D%EC%B2%B4%20%EC%9D%B8%EC%8B%9D%20%EA%B8%B0%EB%B0%98%20%EC%8A%A4%EB%A7%88%ED%8A%B8%20%EC%A3%BC%EC%B0%A8%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B0%9C%EB%B0%9C/images/11.%EB%B6%88%EB%B2%95%EC%A3%BC%EC%B0%A8a.png)
+
+![11.불법주차b](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B0%9D%EC%B2%B4%20%EC%9D%B8%EC%8B%9D%20%EA%B8%B0%EB%B0%98%20%EC%8A%A4%EB%A7%88%ED%8A%B8%20%EC%A3%BC%EC%B0%A8%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B0%9C%EB%B0%9C/images/11.%EB%B6%88%EB%B2%95%EC%A3%BC%EC%B0%A8b.png)
+
+
+
+## Auto Label 구현 결과
+주차장의 차량 객체 인식 결과를 바탕으로 주차공간 박스 집합의 IoU를 확인해 빈 주차공간을 판별한 뒤, 각 주차공간에 ‘occupied’와 ‘empty’ 레이블을 부여한다.
+![12.autolabel](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B0%9D%EC%B2%B4%20%EC%9D%B8%EC%8B%9D%20%EA%B8%B0%EB%B0%98%20%EC%8A%A4%EB%A7%88%ED%8A%B8%20%EC%A3%BC%EC%B0%A8%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B0%9C%EB%B0%9C/images/12.autolabel.png)
 
 ### 주차공간 박스 집합
 - 알고리즘 3. AverageBox
@@ -169,13 +182,6 @@ Grounding DINO 모델은 텍스트와 이미지 특징을 트랜스포머로 결
    8: Return (x_left, y_top, x_right, y_bottom): 평균 박스.   
 ```
 
-## FCM Push
-사용자가 “알림 ON + 관심 주차장/시간대 설정”을 해두면, 해당 시간에 빈 자리가 발생하는 즉시 FCM으로 푸시 알림을 전달한다.
-![11.FCM](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B0%9D%EC%B2%B4%20%EC%9D%B8%EC%8B%9D%20%EA%B8%B0%EB%B0%98%20%EC%8A%A4%EB%A7%88%ED%8A%B8%20%EC%A3%BC%EC%B0%A8%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B0%9C%EB%B0%9C/images/11.FCM.png)
-
-## Auto Label 구현 결과
-주차장의 차량 객체 인식 결과를 바탕으로 주차공간 박스 집합의 IoU를 확인해 빈 주차공간을 판별한 뒤, 각 주차공간에 ‘occupied’와 ‘empty’ 레이블을 부여한다.
-![12.autolabel](https://github.com/chohi22/Industrial-AI/blob/main/%EC%BD%9C%EB%A1%9C%ED%82%A4%EC%9B%80/%EA%B0%9D%EC%B2%B4%20%EC%9D%B8%EC%8B%9D%20%EA%B8%B0%EB%B0%98%20%EC%8A%A4%EB%A7%88%ED%8A%B8%20%EC%A3%BC%EC%B0%A8%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B0%9C%EB%B0%9C/images/12.autolabel.png)
 
 ## 미학습 신규 주차장 추론 결과
 트랜스포머 기반 Grounding DINO 객체 탐지 모델은 학습되지 않은 신규 주차장에서도 94% 이상의 객체 탐지 성능을 보여 준다. 다시 말해, CNN 기반의 모델들 보다 새로운 환경에 대한 적응력이 우수한 모델이라고 볼 수 있다.
@@ -250,6 +256,7 @@ React와 TypeScript를 기반으로 구축된 주차장 관리 시스템으로 �
 - 물리적 센서 설치 비용절감 및 유지보수 비용절감
 - 지역내 스마트 주차환경구축으로 시민 편의성 증가 및 민원 감소
 - 불법주정차 감소
+- 화재 등 안전·사고 예방 가능
 - 수요가 집중되는 시간대에 유휴 주차 공간 정보를 사용자에게 실시간으로 제공함으로써, 주차장을 찾는 데 소요되는 시간과 차량 대기 시간 감소
 - 이로 인한 대기오염까지 감소 예상
  
