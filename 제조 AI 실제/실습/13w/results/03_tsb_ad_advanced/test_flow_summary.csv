@@ -1,0 +1,7 @@
+file,role,n,flow_median
+test_valve1,Normal,338,32.0
+test_valve1,Anomaly,337,31.0
+test_valve2,Normal,334,32.0
+test_valve2,Anomaly,395,30.9589
+test_other,Normal,339,76.9796
+test_other,Anomaly,398,75.0

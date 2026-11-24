@@ -1,0 +1,13 @@
+__pycache__
+*.egg-info
+build
+run_scripts
+Datasets/TSB-AD-Datasets
+lightning_logs
+TSB_AD/models/NormA.py
+TSB_AD/models/Series2Graph.py
+TSB_AD/models/KShapeAD.py
+TSB_AD/models/KShapeAD_tslearn.py
+TSB_AD/main_M.py
+benchmark_exp/thresh/
+dist/

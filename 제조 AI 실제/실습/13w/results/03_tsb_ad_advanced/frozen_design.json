@@ -1,0 +1,111 @@
+{
+  "selected": {
+    "input": {
+      "input_id": "W64_process4",
+      "window": 64,
+      "sensors": "process4"
+    },
+    "method": "USAD",
+    "operation": {
+      "operation_id": "q0.95_raw_hysteresis",
+      "q": 0.95,
+      "smoothing": "raw",
+      "trigger": "hysteresis"
+    },
+    "development_F1": 0.5759410801963993,
+    "development_FPR": 0.0,
+    "development_worst_FPR": 0.0,
+    "meets_development_requirement": true
+  },
+  "per_method": {
+    "LSTMAD": {
+      "input": {
+        "input_id": "W64_process4",
+        "window": 64,
+        "sensors": "process4"
+      },
+      "method": "LSTMAD",
+      "operation": {
+        "operation_id": "q0.95_ema5_hysteresis",
+        "q": 0.95,
+        "smoothing": "ema5",
+        "trigger": "hysteresis"
+      },
+      "development_F1": 0.23323589529440208,
+      "development_FPR": 0.02792649527343405,
+      "development_worst_FPR": 0.043731778425655975,
+      "meets_development_requirement": true
+    },
+    "USAD": {
+      "input": {
+        "input_id": "W64_process4",
+        "window": 64,
+        "sensors": "process4"
+      },
+      "method": "USAD",
+      "operation": {
+        "operation_id": "q0.95_raw_hysteresis",
+        "q": 0.95,
+        "smoothing": "raw",
+        "trigger": "hysteresis"
+      },
+      "development_F1": 0.5759410801963993,
+      "development_FPR": 0.0,
+      "development_worst_FPR": 0.0,
+      "meets_development_requirement": true
+    },
+    "PaAno": {
+      "input": {
+        "input_id": "W16_process4",
+        "window": 16,
+        "sensors": "process4"
+      },
+      "method": "PaAno",
+      "operation": {
+        "operation_id": "q0.99_ema5_consecutive3",
+        "q": 0.99,
+        "smoothing": "ema5",
+        "trigger": "consecutive3"
+      },
+      "development_F1": 0.7616330185607294,
+      "development_FPR": 0.19616573902288187,
+      "development_worst_FPR": 0.3515151515151515,
+      "meets_development_requirement": false
+    }
+  },
+  "development_files": {
+    "dev_valve1": "valve1/1.csv",
+    "dev_valve2": "valve2/1.csv"
+  },
+  "test_files": {
+    "test_valve1": "valve1/2.csv",
+    "test_valve2": "valve2/2.csv",
+    "test_other": "other/3.csv"
+  },
+  "test_seeds": [
+    42,
+    52,
+    62
+  ],
+  "split": [
+    240,
+    320,
+    400
+  ],
+  "gap_seconds": 5,
+  "common_edges": [
+    64,
+    32
+  ],
+  "evaluation_scope": "offline native API",
+  "native_models": [
+    "LSTMAD",
+    "USAD",
+    "PaAno_PAI/public_pai"
+  ],
+  "fpr_limit_per_development_file": 0.1,
+  "source_commits": {
+    "SKAB": "b2c0d46c2971dcbfe71e26087b6d231998bb91c2",
+    "TSB-AD": "303dffbfc11612995b17b06633f8c9d0ea0e38e5"
+  }
+}

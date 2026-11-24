@@ -1,0 +1,22 @@
+{
+  "source_commit": "303dffbfc11612995b17b06633f8c9d0ea0e38e5",
+  "csv_path": "/home/chohi/PythonProjectLLM/AI_EDU/13w/data/advanced_custom/native_custom_demo.csv",
+  "features": [
+    "Pressure",
+    "Temperature",
+    "Vibration"
+  ],
+  "time_column": "timestamp",
+  "label_column": "Label",
+  "train_end": 600,
+  "calibration_end": 800,
+  "window_size": 32,
+  "evaluation_rows": 536,
+  "boundary_exclusion_each_side": 32,
+  "thresholds": {
+    "LSTMAD": 1.7715727210044863,
+    "USAD": 1.6994793236255648,
+    "PaAno": 0.006240706657990813
+  },
+  "scope": "offline native-model API comparison; model-specific preprocessing and score mapping"
+}

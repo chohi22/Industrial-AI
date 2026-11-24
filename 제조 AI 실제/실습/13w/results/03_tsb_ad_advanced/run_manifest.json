@@ -1,0 +1,68 @@
+{
+  "notebook": "03_tsb_ad_advanced.ipynb",
+  "source_commits": {
+    "SKAB": "b2c0d46c2971dcbfe71e26087b6d231998bb91c2",
+    "TSB-AD": "303dffbfc11612995b17b06633f8c9d0ea0e38e5"
+  },
+  "data": {
+    "dev_valve1": {
+      "file": "valve1/1.csv",
+      "sha256": "fe4493bf805baef4e6dfb864094275d8cc2ea80a16b3735e2752b18b6aefd812",
+      "source_commit": "b2c0d46c2971dcbfe71e26087b6d231998bb91c2"
+    },
+    "dev_valve2": {
+      "file": "valve2/1.csv",
+      "sha256": "b35d27f664eb0851ab73e5eb06633404c7eeaf532edff7e40c68eb9379f2012b",
+      "source_commit": "b2c0d46c2971dcbfe71e26087b6d231998bb91c2"
+    },
+    "test_valve1": {
+      "file": "valve1/2.csv",
+      "sha256": "90492413469261886c8896c327241448df5da73fd7739cabfec8dd82de3c0ce4",
+      "source_commit": "b2c0d46c2971dcbfe71e26087b6d231998bb91c2"
+    },
+    "test_valve2": {
+      "file": "valve2/2.csv",
+      "sha256": "2c3005cf28b88db715b7f4694e826ff252cba4dbb1eba679b040961f80477e60",
+      "source_commit": "b2c0d46c2971dcbfe71e26087b6d231998bb91c2"
+    },
+    "test_other": {
+      "file": "other/3.csv",
+      "sha256": "f3c19a89f74f62a475c246b9263f161f7a734dd88304de803939cebaa55c7ebd",
+      "source_commit": "b2c0d46c2971dcbfe71e26087b6d231998bb91c2"
+    }
+  },
+  "development_fits": 36,
+  "development_configs": 324,
+  "development_file_trials": 648,
+  "final_runs": 27,
+  "frozen_design_sha256": "fbafd9ccb646e39aee74c27edf0a7632643349a0435b0d8c4f948b5871fbb406",
+  "native_model_checks": [
+    {
+      "method": "LSTMAD",
+      "native_class": "TSB_AD.models.LSTMAD.LSTMAD",
+      "normal_calibration_points": 48
+    },
+    {
+      "method": "USAD",
+      "native_class": "TSB_AD.models.USAD.USAD",
+      "normal_calibration_points": 48
+    },
+    {
+      "method": "PaAno",
+      "native_class": "TSB_AD.models.PaAno_PAI.PaAno_PAI",
+      "normal_calibration_points": 48
+    }
+  ],
+  "selection_uses_final_test": false,
+  "normal_prefix_adaptation_per_file": true,
+  "evaluation_scope": "offline native API; per-array normalization and native point aggregation",
+  "common_edges": [
+    64,
+    32
+  ],
+  "normal_calibration_points": 48,
+  "device": "cuda",
+  "device_name": "NVIDIA GeForce RTX 5070 Ti",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8"
+}

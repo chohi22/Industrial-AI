@@ -1,0 +1,29 @@
+{
+  "source_commit": "ea702d75cc2258d9d7dd35ca8e5e2539d71f3140",
+  "profile": "standard",
+  "scope": "single TSB example / held-out test",
+  "window_source": "TSB CSV Label runs",
+  "windows_inclusive": [
+    [
+      2014,
+      2147
+    ],
+    [
+      3328,
+      3461
+    ],
+    [
+      3956,
+      4030
+    ]
+  ],
+  "probation_percent": 0,
+  "model_threshold": 7.513388195037849,
+  "binary_cutoff": 1.0,
+  "raw_scores": {
+    "LSTMAD": 2.2930729411038993,
+    "Always normal": -3.0,
+    "Perfect": 3.0
+  },
+  "normalized_score": 88.21788235173165
+}
